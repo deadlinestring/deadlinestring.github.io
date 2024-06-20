@@ -1,0 +1,750 @@
+
+// Normalize and Variables
+@import 'normalize.css';
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Thai:wght@100..900&family=Oswald:wght@200..700&display=swap');
+
+/* Body */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 2; // Ensure the header has a high z-index
+}
+
+.main-photo-container {
+  position: relative;
+  margin-bottom: 150%;
+}
+
+.main-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1; // Place photo above pseudo-element
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid $highlight-color;
+    filter: blur(10px);
+    box-shadow: 0 0 5px 2px $highlight-color;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2; // Ensure pseudo-element is above the image but below it
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.main-photo-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 50%;
+  background-color: $highlight-color;
+  filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0; // Ensure pseudo-element is below the photo
+}
+
+.main-photo-container:hover::before {
+  opacity: 1;
+}
+
+.main-menu-navigation,
+.main-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.menu-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: color 0.5s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: -20%;
+    width: 135%;
+    height: 1px;
+    background-color: #ffffff;
+    opacity: 0.3;
+  }
+
+  .menu-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .menu-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: $highlight-color;
+    text-shadow: 0 0 $blur-radius $highlight-color;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  &:hover {
+    .menu-icon {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .menu-text {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.main-menu-navigation a:hover {
+  color: $background-color;
+}
+
+.main-menu-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $highlight-color;
+  text-decoration: none;
+  padding: 10px 0;
+  width: 100%;
+  transition: transform 0.3s;
+
+  .menu-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    transform: scale(1.6);
+  }
+}
+
+/* Section 1 */
+.container-page-1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start; // поменял с центр на флекс старт
+  justify-content:center;
+  height: 100vh;
+  padding: 10px;
+  margin-left: 5%;
+  text-align: center;
+
+  
+
+  .button-resume-link {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    padding: 10px 20px;
+    border: 2px solid $text-color;
+    border-top:none;
+    color: $text-color;
+    font-family: $font-family;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 3;
+
+    &:hover {
+      border-color: $highlight-color;
+      color: $highlight-color;
+      text-shadow: 0 0 $blur-radius $highlight-color;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .header-text {
+    font-size: 2.5rem;
+    margin-left: 3%;
+    padding: 0 30px;
+    cursor:default;
+    z-index: 1;
+    
+    .letter {
+      display: inline-block;
+      margin-left: -0.25em;
+      transition: transform 0.3s ease;
+      font-family: $font-family;
+
+
+      &:hover {
+        transform: scale(1.2) rotate(10deg);
+        color: $highlight-color;
+      }
+    }
+  }
+
+  .header-text h1 {
+    text-align: left;
+    margin-top: -4rem;
+  }
+
+
+  .text-p {
+    color:rgb(90, 90, 90);
+    padding-left: 4%;
+    margin-top: -40px;
+    font-family: $font-family;
+    cursor: default;
+    z-index: 1;
+  }
+
+  .button-scroll-to-contact {
+    display: inline-block;
+    margin-left: 4%;
+    padding: 15px 100px;
+    border: 2px solid $text-color;
+    color: $text-color;
+    font-family: $font-family;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      border-color: $highlight-color;
+      color: $highlight-color;
+      text-shadow: 0 0 $blur-radius $highlight-color;
+    }
+  }
+
+  .scroll-down-container {
+    position: absolute;
+    bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%; // Помещаем контейнер по середине горизонтальной оси 
+    transform: translateX(-50%); // Центрируем контейнер по горизонтали 
+    z-index: 1;
+  
+    .scroll-down {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+  
+      .rotating-icon {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        animation: rotate-icon 9s linear infinite;
+      }
+  
+      .scroll-down-link {
+        position: absolute;
+        opacity: 0;
+        width: 60%;
+        height: 60%;
+        padding-top: 10px;
+        transition: $transition-duration;
+  
+        .down-arrow {
+          width: 100%;
+          height: 100%;
+        }
+      }
+  
+      &:hover .scroll-down-link {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+} // Keyframes for rotating
+@keyframes rotate-icon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//Рандомные квадратики
+.random-squares-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: $background-color;
+  z-index: 0; // Располагаем контейнер позади других элементов
+}
+
+.square {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: $highlight-color;
+  opacity: 0.5;
+  transition: opacity 0.9s ease-in-out; // Плавное исчезновение
+  pointer-events: none; // Отключаем возможность взаимодействия с квадратами
+  animation: fade-in-out 3s infinite;
+  z-index: 0;
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Стили для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .square {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Стили для мобильных устройств (ширина экрана до 480px) */
+@media (max-width: 480px) {
+  .square {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+
+// 3D-эффект для букв S и D
+#charS, #charD{
+  display: inline-block;
+  transition: transform 0.9s;
+  transform-origin: center;
+  text-shadow: -8px 0px 0px $highlight-color;
+  color: rgb(142, 0, 185);
+  margin-left: 0.3em;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Section 2 */
+
+#about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 10%;
+  background-color: $background-color;
+  color: $text-color;
+
+  .container-page-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .text-area-cp2 {
+      flex: 1;
+      padding-right: 10px;
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: $highlight-color;
+        font-family: $font-family;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: $text-color;
+        font-family: $font-family;
+      }
+    }
+
+    .image-area-cp2 {
+      flex: 1;
+      text-align: right;
+      margin-left: 20%;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+/* Section 3 */
+
+#skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 10%;
+  background-color: $background-color;
+  color: $text-color;
+
+  .container-page-3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .text-and-image {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .text-area-cp3 {
+        flex: 1;
+        margin-right: 5%;
+
+        h2 {
+          font-size: 3rem;
+          margin-bottom: 20px;
+          color: $highlight-color;
+          font-family: $font-family;
+        }
+
+        p {
+          font-size: 1.2rem;
+          line-height: 1.6;
+          font-family: $font-family;
+        }
+      }
+
+      .image-area-cp3 {
+        flex: 1;
+        max-width: 40%;
+        
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .icon-box-skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-top: -10%;
+      width: 50%;
+
+      .skill-icon {
+        background-color: #2b2b2b;
+        color: $highlight-color;
+        font-family: $font-family;
+        padding: 10px 20px;
+        margin-top: 1%;
+        margin-right: 1%;
+        font-size: 1.2rem;
+
+        &:hover{
+          border-radius:0px;
+          font-size:1.2rem;
+          background-color: $highlight-color;
+          color:$background-color;
+          transition: 0.3s;
+          cursor:default;
+        }
+      }
+    }
+  }
+}
+
+
+/* Section 4 */
+
+#projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 10%;
+  background-color: $background-color;
+  color: $text-color;
+
+  .container-page-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    .text-area-cp4 {
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: $highlight-color;
+        font-family: $font-family;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: $text-color;
+        font-family: $font-family;
+      }
+    }
+
+    .container-links{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .links-to-pet-projects {
+      display: flex;
+      justify-content: center; 
+      width: 100%;
+
+      img {
+        width: 100%; 
+        height: auto; 
+
+        &:hover{
+          filter: brightness(0.5);
+        }
+      }
+    
+      a {
+        width: 25%;
+        height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: $transition-duration;
+
+        &:hover {
+          filter: brightness(1);
+        
+          &::after {
+            content: attr(data-text); 
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px 10px;
+            color: #fff;
+            opacity: 1;
+            font-family: $font-family;
+            font-size: 1.2rem;
+            font-weight: 800;
+            z-index: 1;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*Section 5*/
+
+#contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 0 0 10%;
+  background-color: $background-color;
+  color: #fff; /* Измените на нужный цвет текста */
+
+  .container-page-5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .form-callback {
+      flex: 1;
+      max-width: 45%;
+      margin-right: 5%;
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: $highlight-color;
+        font-family: $font-family;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        input,
+        textarea {
+          width: 81%;
+          padding: 10px;
+          border: none;
+          margin-bottom: 0px;
+          background-color: #2b2b2b;
+          color: $text-color;
+          font-family: $font-family;
+
+          &:focus{
+            outline: none;
+          }
+
+          &::placeholder{
+            font-size: 0.8rem;
+            color:#ffd90052;
+          }
+        }
+
+        .form-footer{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        p {
+          margin-top: -1%;
+          flex: 1;
+          margin-left: 0% ;
+          color:rgb(90, 90, 90);
+          font-family: $font-family;
+
+          a{
+            text-decoration: none;
+            color:$highlight-color;
+            font-family: $font-family;
+            font-size: 0.9rem;
+            text-shadow: 0 0 1px $highlight-color;
+            
+          }
+        }
+        button {
+          margin-top: -2%;
+          margin-right: 16%;
+          width: 20%;
+          padding: 10px 15px;
+          border: 2px solid $text-color;
+          background-color: $background-color; 
+          color: $text-color;
+          font-family: $font-family;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: $background-color;
+            color: $highlight-color;
+            border: 2px solid $highlight-color;
+            text-shadow: 0 0 $blur-radius $highlight-color;
+          }
+        }
+      }
+    }
+
+    .map {
+      flex: 1;
+      width: 50%;
+      height: 100vh;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+
+// Анимация букаф
+
+.typewriter {
+  overflow: hidden;
+  border-right: 0.10em solid $highlight-color; /* Adjust color if necessary */
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.0s steps(20, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: $highlight-color; }
+}
+
+.typewriter-finished {
+  border-right: none;
+}

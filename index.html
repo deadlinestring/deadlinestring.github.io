@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Leaflet CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+      <!-- Leaflet JS -->
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+      <title>JS Vite template</title>
+  </head>
+  <body>
+    <header>
+      <nav class="main-menu">
+        <div class="main-photo-container">
+          <div class="main-photo">
+            <img src="/public/images/profile-photo.webp" alt="Your Photo">
+          </div>
+        </div>
+        <div class="main-menu-navigation">
+          <a href="#about" class="menu-item">
+            <img src="/public/icons/icons8-о-нас,-мужчина-80.png" alt="About" class="menu-icon">
+            <span class="menu-text">About</span>
+          </a>
+          <a href="#skills" class="menu-item">
+            <img src="/public/icons/icons8-обучение-80.png" alt="Skills" class="menu-icon">
+            <span class="menu-text">Skills</span>
+          </a>
+          <a href="#projects" class="menu-item">
+            <img src="/public/icons/icons8-курсы-_мама-и-я_-80 (1).png" alt="Projects" class="menu-icon">
+            <span class="menu-text">Projects</span>
+          </a>
+          <a href="#contact" class="menu-item">
+            <img src="/public/icons/icons8-почта-80.png" alt="Contact" class="menu-icon">
+            <span class="menu-text">Contact</span>
+          </a>
+        </div>
+        <div class="main-menu-links">
+          <a href="https://t.me/deadlinexx" target="_blank">
+            <img src="/public/icons/icons8-телеграм-50.png" alt="Telegram" class="menu-icon">
+          </a>
+          <a href="https://github.com/deadlinestring" target="_blank">
+            <img src="/public/icons/icons8-github-50.png" alt="GitHub" class="menu-icon">
+          </a>
+          <a href="https://vk.com/giorno___giovanna" target="_blank">
+            <img src="/public/icons/icons8-vk-в-круге-50.png" alt="Vk" class="menu-icon">
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="container-page-1">
+        <a href="path/to/resume.pdf" class="button-resume-link">Resume</a>
+        <div class="header-text">
+          <h1>
+            <span class="letter">H</span>
+            <span class="letter">i</span>
+            <span class="letter">,</span>
+          </h1>
+          <h1>
+            <span class="letter">I</span>
+            <span class="letter">'</span>
+            <span class="letter">m</span>
+            <span class="letter" id="charS" data-letter="S">S</span>
+            <span class="letter">e</span>
+            <span class="letter">r</span>
+            <span class="letter">g</span>
+            <span class="letter">e</span>
+            <span class="letter">i</span>
+            <span class="letter">,</span>
+          </h1>
+          <h1>
+            <span class="letter">w</span>
+            <span class="letter">e</span>
+            <span class="letter">b</span>
+            <span class="letter" id="charD" data-letter="D">d</span>
+            <span class="letter">e</span>
+            <span class="letter">v</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter">o</span>
+            <span class="letter">p</span>
+            <span class="letter">e</span>
+            <span class="letter">r</span>
+          </h1>
+        </div>
+        <p class="text-p">Junior Front-End Developer / Freelancer</p>
+        <a href="#contact" class="button-scroll-to-contact">Reach Me</a>
+        <div class="scroll-down-container">
+          <div class="scroll-down">
+            <img src="/public/images/Scroll Down - Scroll Down (7).png" alt="Rotating Icon" class="rotating-icon">
+            <a href="#about" class="scroll-down-link">
+              <img src="/public/images/Scroll Down - Scroll Down (6).png" alt="Down Arrow" class="down-arrow">
+            </a>
+          </div>
+        </div>        
+        </div>
+        <div class="random-squares-container"></div>
+      </section>
+      <section id="about">
+        <div class="container-page-2">
+          <div class="text-area-cp2">
+            <div class="typewriter-container">
+            <h2 class="typewriter">About Me</h2>
+            </div>
+            <p>Hello! My name is Sergei Alexandrov and I am a Junior Frontend Developer currently based in Barnaul, Russia 🇷🇺</p>
+            <p>I study and specialize in creating beautiful and reliable front-end for various services and applications.</p>
+          </div>
+          <div class="image-area-cp2">
+            <img src="public/images/Дизайн без названия (3).png" alt="Your Image" style="width:100%;height:auto;">
+          </div>
+        </div>
+      </section>
+      <section id="skills">
+        <div class="container-page-3">
+          <div class="text-and-image">
+            <div class="text-area-cp3">
+              <div class="typewriter-container">
+                <h2 class="typewriter">My Skills</h2>
+              </div>
+              <p>In building JavaScript applications, I'm equipped with different tools, which I can choose from depending on the needs of the particular project. I keep my knowledge up-to-date and always seek for better solutions.</p>
+            </div>
+            <div class="image-area-cp3">
+              <img src="public/images/йуцуцу.png" alt="Skills Image">
+            </div>
+          </div>
+          <div class="icon-box-skills">
+            <div class="skill-icon">HTML5</div>
+            <div class="skill-icon">CSS</div>
+            <div class="skill-icon">SCSS</div>
+            <div class="skill-icon">Git</div>
+            <div class="skill-icon">JavaScript</div>
+            <div class="skill-icon">React</div>
+          </div>
+        </div>
+      </section>      
+      <section id="projects">
+        <div class="container-page-4">
+          <div class="text-area-cp4">
+            <div class="typewriter-container">
+            <h2 class="typewriter">My pet-projects</h2>
+            </div>
+            <p>Описание твоих проектов. Что ты делал, какие задачи решал, какие технологии использовал.</p>
+          </div>
+          <div class="container-links">
+          <div class="links-to-pet-projects">
+              <a href="http://www.sberbank.ru/ru/person/dist_services/inner_sbol" target="_blank" data-text="Project-1">
+                <img class="project-1" src="public/images/images.jpg" alt="Project Image1">
+              </a>
+              <a class="project-2" href="https://alfabank.ru/" target="_blank" data-text="Project-2">
+                <img src="public/images/images.jpg" alt="Project Image2">
+              </a>
+              <a class="project-3" href="https://www.vtb.ru/" target="_blank" data-text="Project-3">
+                <img src="public/images/images.jpg" alt="Project Image3">
+              </a>
+          </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="container-page-5">
+            <div class="form-callback">
+                <div class="typewriter-container">
+                    <h2 class="typewriter">Contact Me</h2>
+                </div>
+                <form action="submit-form.php" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required /><br />
+                    <input type="email" name="email" placeholder="Your Email" required /><br />
+                    <textarea name="message" placeholder="Your Message" required></textarea><br />
+                    <div class="form-footer">
+                      <p>Or email me directly at <br><a href=serezhalovell666@gmail.com>serezhalovell666@gmail.com</a></p>
+                      <button type="submit">Send</button>
+                  </div>
+                </form>
+            </div>
+            <div class="map">
+                <div id="map"></div>
+            </div>
+        </div>
+    </section>    
+    </main>
+    <footer></footer>
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>
